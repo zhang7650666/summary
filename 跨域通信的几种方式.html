@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        跨域通信的几种方式
+        1、 jsonp
+
+        function jsonp(url) {
+            var el = document.createElement('script')
+            el.src = url;
+            document.body.appendChild(el);
+        }
+        动态创建一个script 将请求地址赋值给src 服务器相应之后， 将参数返回回调函数里返回回来
+        2、 WebSocket
+        var ws = new Websocket('ws://localhost:9998/echo')
+        ws.onopen = function() {
+            console.log('已经与服务器链接')
+            ws.send('data')
+        }
+        ws.onmessage = function(evt) {
+            console.log(evt.data)
+            wx.close() // 关闭链接
+        }
+        ws.onclose = function() {
+            console.log('已经关闭')
+        }
+        3、 postMessage
+        页面A('http://A.com') 想跨域的B('http://B.com') 页面发送数据
+        A页面代码
+        window.postMessage('data', 'http://B.com')
+        B页面代码
+        window.addEventListener('message', function(event) {
+            console.log(event.origin)
+            console.log(event.source)
+            console.log(event.data)
+        }, false)
+        4、 CORS
+        5、 Hash hash改变页面是不刷新的
+        场景 A 页面中有一个ifream 活着fream 签入了跨越的页面B
+        A 中的代码
+        var B = document.getElementsByTagName('ifream')
+        B.src = B.src + '#' + 'data'
+        B中的代码
+        window.onhashchange = function() {
+            var data = window.location.hash
+        }
+    </script>
+</body>
+
+</html>

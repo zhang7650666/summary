@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        1、 CSRF
+        a、 基本概念和缩写： 跨站请求伪造， 缩写 CSRF
+        b、 攻击原理： 例如用户访问一个页面， 这个页面是登录页面， 用户首次访问登录， 登录成功之后， 下发的cookie会存到客户端， 然后又访问了B页面， B页面有一个链接入口点击 连到A页面， 这时恶意攻击者就会获取到用户信息(CSRF 1、 攻击的前提必须是用户登录 2、 某个网站存在了这样的漏洞)
+        c、 防护措施
+        1、 Token验证： 正常情况下， 我们访问一个网站， 服务器会自动的向我们本地存储一个Token, 在我们访问各种接口的时候， 如果服务器没有带证Token就不能通过验证
+        2、 Referer验证： Referer 指的就是页面来源(判断页面的来源是否是来自这个站点下)
+        3、 隐藏令牌(把隐藏令牌加载链接上)
+
+        2、 XSS
+        基本概念： 跨域脚本攻击 缩写 XSS
+        攻击原理： 不需要做任何的登录验证。 他会想你的页面中注入脚本信息
+    </script>
+</body>
+
+</html>

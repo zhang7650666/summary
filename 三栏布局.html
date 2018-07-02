@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style lang="css">
+        /* .wrap {
+            display: flex;
+        }
+        
+        .wrap .left,
+        .wrap .right {
+            flex: 0 0 300px;
+            width: 300px;
+        }
+        
+        .wrap .middle {
+            flex: 1;
+        }
+        
+        .left {
+            background: red;
+        }
+        
+        .middle {
+            background: blue;
+        }
+        
+        .right {
+            background: green;
+        } */
+        
+        .fix:after {
+            display: block;
+            content: " ";
+            height: 0;
+            line-height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+        
+        .fix {
+            *zoom: 1;
+        }
+        
+        .fl {
+            float: left;
+        }
+        
+        .fr {
+            float: right;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .wrap div {
+            display: inline-block;
+        }
+        
+        .left,
+        .right {
+            width: 300px;
+        }
+        
+        .left {
+            background: red;
+        }
+        
+        .right {
+            background: blue;
+        }
+        
+        .middle {
+            background: green;
+            margin-right: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap fix">
+        <div class="left">left</div>
+        <div class="middle">middle</div>
+        <div class="right">right</div>
+    </div>
+</body>
+
+</html>
