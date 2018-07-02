@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        前后端通信的方式有多少种
+            1、ajax
+                由客户端发送请求，服务端接收请求，服务端不能主动向客户端发送数据。
+                ajax长轮询： 如果要用ajax实现数据实时更新，就要用到长轮询，每个几秒请求一次数据，这样会给服务器造成很大的压力，浪费大量流量.
+                ajax的优点
+                    1、无刷新更新数据
+                    2、异步与服务器通信。
+                    3、前端后端负载平衡
+                    4、界面与应用分离
+                    5、不能跨域
+                ajax缺点
+                    1、AJAX干掉了Back和History功能，即对浏览器机制的破坏。
+                    2、ajax交互的整个过程都是暴露的。
+                    3、对搜索引擎支持较弱
+                ajax的封装
+                    function ajax(options){
+                        var xhr = null
+                        var params = formsParams(options.data);
+                        if(window.XMLHttpRequest){
+                            xhr = new XMLHttpRequest()
+                        }else{
+                            xhr = new ActiveXObject('Mircosoft.XNLHTTP')
+                            
+                        }
+                        if(options.type === "GET" || options.type === 'get'){
+                            xhr.open(options.type, options.url + '?' + params,options.async)
+                            xhr.send(null)
+                        }else if(options.type === "POSt" || options.type === "post"){
+                            xhr.open(options.type,options.url,options.async)
+                            xhr.setRequetHeader('Content-type','appliation/x-www-from-urlencoded')
+                            xhr.send(params)
+                        }
+                        xhr.onreadystatecheng = function(){
+                            if(xhr.readyState === 4 && xhr.status === 200){
+                                options.success(xhr.responseText)
+                            }
+                        }
+                    }
+            2、jsonp
+            3、websocket
+
+    </script>
+</body>
+</html>

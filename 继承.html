@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //     // 定义构造函数A，定义特权属性和特权方法
+        // function A(x) {
+        //     this.x1 = x;
+        //     this.getX1 = function(){
+        //         return this.x1;
+        //     }
+        // }
+        // // 定义构造函数B，定义特权属性和特权方法
+        // function B(x) {
+        //     this.x2 = x;
+        //     this.getX2 = function(){
+        //         return this.x1 + this.x2;
+        //     }
+        // }
+        // B.prototype = new A(1);
+        // var b = new B(2)
+        // console.log(b.x1)
+        // console.log(b.getX1())
+        // console.log(b.x2)
+        // console.log(b.getX2())
+
+        // 继承封装
+        function extend(sub,sup){
+            function F(){};
+            F.prototype = sup.prototype;
+            sub.prototype = new F();
+            sub.prototype.substructor = sub;
+            sub.sup = sup.prototype;
+            if(sup.prototype.constructor === Object.prototype.constructor){
+                sup.prototype.constructor = sup
+            }
+
+        }
+    </script>
+</body>
+</html>

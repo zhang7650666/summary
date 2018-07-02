@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        通信类内容总结
+            1、什么是同源策略的限制
+                端口号 、 协议号  、主机名 一致
+            2、为什么要有同源策略的限制
+                保证用户信息的安全，防止恶意的网站窃取数据。
+            3、解决办法 (跨域的方法)
+                a、html5 提供了postMessage通信的API，这个API为window 新增了一个方法 ，window.postMessage的方法，允许跨域，无论这两个页面是否同源。
+                b、jsonp : 网页通过动态的创建一个script，向服务器请求json数据，这种做法不受同源限制，服务器接收到请求之后，将数据放到指定名字的回调函数里返回回来。
+
+                    var url = "http://www.practice-zhao.com/student.php?id=1&callback=jsonhandle";
+                    var el = document.createElement('script');
+                    el.src = url 
+                    document.body.appendChild(el)
+
+                    jq 写法
+                    var url = "http://www.practice-zhao.com/student.php?id=1&callback=jsonhandle";
+                    var el = $('<script></script>')
+                    el.attr('src',url);
+                    $('body').append(el)
+
+                    注意  jsonp 只能get 不能post
+                c、CORS 跨资源分享
+                    夸资源分享是W3C的标准，是跨域ajax请求的根本解决方法,允许任何类型的请求。
+                    CORS的过程:
+                        整个夸资源分享的过程，都是浏览器自动完成的，不需要用户参与。对于开发者来说，CORS跨资源分享与同源的ajax通信没有差别，代码完全一样。浏览器一旦发现请求跨域，就会自动添加一些附加的头信息，有时还会多一次附加的请求，单用户是感受不到的。
+                    CORS夸资源分享的关键
+                        CORS夸资源通信的关键就是服务器，只要服务器实现了CORS跨源通信的接口，就可以跨源通信。
+                    CORS跨源通信分为两类
+                        1、简单请求（simple request)
+                            满足一下两个条件就是简单请求
+                            a、请求方法是  GET/POST/HEAD
+                            b、请求头信息  Accepet/Accept-language/Content-language/....
+                        2、非简单请求 (not-so-simple request)
+    </script>
+</body>
+</html>

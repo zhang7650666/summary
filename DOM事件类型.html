@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrap">
+            <div id="test">
+                    <span>aaa</span>
+                    <span>bbb</span>
+                    <span>ccc</span>
+                </div>
+               
+    </div>
+    <script>
+        document.getElementById('test').addEventListener('click', function(ev){
+            var ev = ev || window.event;
+            console.log(ev.target);
+            console.log(ev.currentTarget);
+        }, false);
+    </script>
+    <script>
+        // DOM的事件类型
+        //    1、DOM的事件级别
+        //         DOM0 级事件
+        //             el.onclick=function(){}
+        //         DOM1 级事件
+        //             1级DOM标准中并没有定义事件相关的内容，所以没有所谓的1级DOM事件模型。
+        //         DOM2 级事件
+        //              el.addEventListener('click',function(){},false)
+        //              参数1  指的的是事件类型
+        //              参数2  事件触发的回调
+        //              参数3  false  表示冒泡阶段调用    true   表示捕获阶段调用
+        //         DOM3 级事件
+        //              el.addEventListener('keyup', function(){},false)
+        //              一般指的是一些键盘事件  鼠标事件
+        //     ======================================================================
+        //     2、DOM  事件模型
+        //         1、事件捕获
+        //         2、事件冒泡
+        //     ======================================================================
+        //     3、DOM  事件流
+        //         1、事件捕获  =》  目标阶段    =》  事件冒泡阶段
+        //     =======================================================================
+        //     4、事件捕获的具体流程
+        //        window => document => html => body => 目标事件 => body => HTML => document =>window 
+        //     =======================================================================
+        //     5、event对象常见的应用
+        //        1、
+        //             ev.preventDefault()
+        //             ev.returnValue = false;
+        //         2、
+        //             ev.stopPropagation()
+        //             ev.cancelbubble = true
+        //         3、
+                //         ev.target   // 指的是当前的目标元素
+                //         ev.currentTarget   // 指的是委托的元素  （父元素)
+                // ====================================================================
+                // 6、自定义事件
+                //     var ev = new Event('aaa')
+                //     el.addEventListener('aaa',function(){},false)
+                //     ev.dispatchEvent('aaa')
+
+
+    </script>
+</body>
+</html>

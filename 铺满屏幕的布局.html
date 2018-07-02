@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        html,body{
+            width:100%;
+            height:100%;
+        }
+     
+        .box{
+            width:100%;
+            height:100%;
+            
+        }
+        .wrap{
+            width:100%;
+            height:66.66666%;
+            background:pink;
+            display:flex;
+        }
+        .left{
+            flex:2;
+            height:100%;
+            background:red;
+        }
+        .right{
+            flex:1;
+            height:100%;
+        }
+        .right-chiid{
+            width:100%;
+            height:50%;
+            background:green;
+        }
+        .wrap1{
+            display:flex;
+            width:100%;
+            height:33.33333%;
+        }
+        .lay{
+            flex:1;
+            height:100%;
+            background:blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+            <div class="wrap fix">
+                <div class="left fl"></div>
+                <div class="right fr">
+                    <div class="right-child"></div>
+                    <div class="right-child"></div>
+                </div>
+            </div>
+            <div class="wrap1 fix">
+                <div class="lay fl"></div>
+                <div class="lay fl"></div>
+                <div class="lay fl"></div>
+            </div>
+    </div>
+    
+</body>
+</html>
