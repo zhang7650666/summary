@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1、 js的运行机制
+        js 是单线程的
+        任务队列
+        a、 同步任务(同步任务优先于异步任务的执行， 也就是说同步任务执行完之后才会执行异步任务)
+        b、 异步任务(常见的异步任务有 定时器 ajax请求)
+
+        // 实例
+        // consoel.log('A');
+        // while(true){
+
+        // }
+        // console.log("B");
+        // 运行结果 是A  因为While是同步任务 又是一个死循环，所以不会走到B
+
+        什么是事件循环EventLoop
+        定时器的0ms 老板本的话是 最小值 是10ms  新版的 是4ms
+    </script>
+</body>
+
+</html>
