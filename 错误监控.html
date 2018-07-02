@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        1、前端错误的分类
+            a、及时运行错误  (也就是代码错误)
+            b、资源加载错误
+
+        2、错误的捕获方式
+            a、及时错误的捕获方式
+                1、try..catch   
+                2、window.onerror
+            b、资源加载错误
+                1、object.onerror(静态资源是不可以冒泡的，但是他可以捕获)
+                2、performance.getEntries()(可以获取到已经加载到的静态资源情况，他得到的是一个数组，遍历可以得到每个静态资源)
+                3、Error事件捕获
+                    addEventListener('error',function(e){
+                        console.log(e)
+                    },true)
+                延伸：跨域的js运行错误可以捕获吗？错误提示是什么？应该怎么处理？
+                    (只能捕获到错误，但是拿不到响应的信息，要想拿到详细信息，需要做一下两部)
+                    1、客户端做的事情  就是在script 加上crossorigin属性
+                    2、服务端做的事情   Access-Control-Allow-Origin：*
+
+        3、上报错误的基本原理
+                1、使用ajax通信的方式上报  (但是所有的监控体系都不是这样做的)
+                2、使用Image对象上报
+                    (new Image()).src="http://www.baidu.com/test?name=123"
+    </script>
+</body>
+</html>

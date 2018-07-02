@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        ====================DOM====================
+        1、标签语义话
+        2、少操作DOM
+        ====================CSS====================
+        1、CSS 代码压缩
+        2、不适用CSS表达式
+        3、CSS代码合并
+        4、CSS放到header标签内
+        ====================js====================
+        1、js代码压缩
+        2、js代码合并
+        3、少用for循环
+        4、减少http请求
+        5、js放到body底部
+        6、非核心代码异步加载
+            a、动态创建script标签   b、async    c、defer
+            defer  与 async  的区别
+            defer  是所有的HTML都解析完成之后才执行，如果是多个，会按照加载顺序一次执行
+            async  加载完成之后立即执行，如果是多个，也是谁先加载完成，谁先执行，(执行顺序和加载顺序无关)
+        ====================img====================
+        1、图片使用精灵图
+        2、合理使用图片格式
+        ====================缓存的利用====================
+        1、缓存的分类
+            a、强缓存
+                Expires  xxxx 缓存过期时间(这个时间是绝对时间,这个时间一般指的是服务器下发的时间)(响应头上回携带两个东西(有的是1个有的是两个，看服务器的配置))
+                Catch-Control Catch-Control:max-age=3600 (相对时间， 不管客户端与服务端的时间是否一致，最后一相对时间为准，单位是s)
+                (只要缓存存在就直接使用)
+                (不管是相对时间，还是绝对时间，在这个时间内是不会在和服务端通信了，直接拿来用)
+            b、协商缓存
+                Last-Modified(表示上次修改的时间) if-Modified-Since(请求的时候与服务器对比有没有发生变化) 
+                Etag if-None-Match
+                (协商缓存：指的是本地用这个缓存，但是用不用，要向服务器询问一下)
+                (如果相对时间与绝对时间都下发了，以后者为准)
+        ====================CDN====================
+        ========================DNS预解析================
+        (在页面中你不加DNS预解析，所有的a标签也是打开的,但是如果你的页面时https开头的，很多浏览器是关闭了这个功能的)
+        <meta http-equiv="x-dns-prefetch-control" content="on">(强制打开a标签的DNS预解析 dns-prefetch )
+        <link rel="dns-prefetch" href="//host_name_to_prefetch.com">(dns-prefetch  开启页面预解析功能)
+    </script>
+</body>
+</html>

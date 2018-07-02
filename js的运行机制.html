@@ -24,8 +24,24 @@
         // console.log("B");
         // 运行结果 是A  因为While是同步任务 又是一个死循环，所以不会走到B
 
-        什么是事件循环EventLoop
+       
         定时器的0ms 老板本的话是 最小值 是10ms  新版的 是4ms
+        定时器  浏览器内部有一个模块，当定时到了时间，才会把定时器里的内容放到异步函数里去执行
+        for(var i=0;i<4;i++){
+            setTimeout(function(){
+                console.log(i) //结果 四个  4
+            },1000)
+        }
+
+         什么是事件循环EventLoop
+            什么时候将这些时间放到异步任务中去
+                setTimeout setIntervel
+                DOM事件
+                ES6中promise
+            什么时候执行异步任务
+                当执行到定时器这一行的时候，浏览器会将他放到自己内部的一个处理异步的模块里，当定时器的时间到了，定时器里的异步代码才会执行
+                
+
     </script>
 </body>
 
